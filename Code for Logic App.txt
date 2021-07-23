@@ -1,0 +1,16 @@
+Code for logic app:
+lastIndexOf(variables('EmailPlainText'),'Affected Asset or Unit:')
+lastIndexOf(variables('EmailPlainText'),'Resource Name:')
+lastIndexOf(variables('EmailPlainText'),'Type of')
+lastIndexOf(variables('EmailPlainText'),'Event Start:')
+lastIndexOf(variables('EmailPlainText'),'Event Stop:')
+lastIndexOf(variables('EmailPlainText'),'Available Capacity MW:')
+lastIndexOf(variables('EmailPlainText'),'Remarks:')
+
+substring(variables('EmailPlainText'),add(variables('AAOU'),23),sub(variables('RN'),add(variables('AAOU'),23)))
+substring(variables('EmailPlainText'),add(variables('RN'),14),sub(variables('TOU'),add(variables('RN'),14)))
+substring(variables('EmailPlainText'),add(variables('TOU'),23),sub(variables('EStart'),add(variables('TOU'),23)))
+substring(variables('EmailPlainText'),add(variables('EStart'),12),sub(variables('EStop'),add(variables('EStart'),12)))
+substring(variables('EmailPlainText'),add(variables('EStop'),12),sub(variables('AC'),add(variables('EStop'),12)))
+substring(variables('EmailPlainText'),add(variables('AC'),22),sub(variables('Rem'),add(variables('AC'),22)))
+substring(variables('EmailPlainText'),add(variables('Rem'),8))
